@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <ctype.h>
+#include <string.h>
+
+void analyzeLexical(char *script) {
+    int i = 0;
+    while (script[i] != '\0') {
+        if (isalpha(script[i])) { 
+            printf("Keyword/Identifier: %c\n", script[i]);
+        } else if (isdigit(script[i])) { 
+            printf("Number: %c\n", script[i]);
+        } else if (script[i] == ' ' || script[i] == '\n') { 
+            // Ignore spaces and newlines
+        } else { 
+            printf("Special Character: %c\n", script[i]);
+        }
+        i++;
+    }
+}
+
+int main() {
+    char script[] = "Grade A marks 95%";
+    printf("Lexical Analysis of Academic Evaluation Script:\n");
+    analyzeLexical(script);
+    return 0;
+}
